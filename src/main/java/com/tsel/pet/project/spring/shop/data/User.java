@@ -1,26 +1,41 @@
 package com.tsel.pet.project.spring.shop.data;
 
+import java.io.Serial;
+import java.io.Serializable;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import lombok.ToString;
 
-@Data
 @Entity
 @Table(name = "user")
+@Data
+@Builder
+@ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class User {
+public class User implements Serializable {
+
+    @Serial
+    private static final long serialVersionUID = -1117533208827714793L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO) //todo: вспомнить на счёт генераций
-    private String id;
+    @GeneratedValue
+    private long id;
 
+    @Column(name = "nick_name")
     private String nickName;
-//    private String password;
+//    @Column
+    private String password;
+    @Column
     private String firstName;
+    @Column
     private String secondName;
+    @Column
     private String email;
+    @Column
     private String phone;
 }
