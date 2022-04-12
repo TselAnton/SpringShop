@@ -23,19 +23,24 @@ public class User implements Serializable {
     private static final long serialVersionUID = -1117533208827714793L;
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(name = "nick_name")
-    private String nickName;
-//    @Column
+    @Column(nullable = false)
+    private String userName;
+
+    @Column(nullable = false)
     private String password;
+
     @Column
     private String firstName;
+
     @Column
     private String secondName;
+
     @Column
     private String email;
+
     @Column
     private String phone;
 }

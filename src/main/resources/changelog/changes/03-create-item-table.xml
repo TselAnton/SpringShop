@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+  http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+  <changeSet id="3.0.0" author="Anton Tsel">
+      <createTable tableName="category">
+        <column name="id" type="INT">
+          <constraints primaryKey="true" nullable="false"/>
+        </column>
+        <column name="name" type="VARCHAR(255)">
+          <constraints nullable="false"/>
+        </column>
+        <column name="discount" type="INT"/>
+      </createTable>
+  </changeSet>
+
+  <changeSet id="3.1.0" author="Anton Tsel">
+      <createTable tableName="item">
+        <column name="id" type="INT">
+          <constraints primaryKey="true" nullable="false"/>
+        </column>
+        <column name="name" type="VARCHAR(255)">
+          <constraints nullable="false"/>
+        </column>
+        <column name="category_id" type="INT">
+          <constraints nullable="false"/>
+        </column>
+        <column name="price" type="BIGINT">
+          <constraints nullable="false"/>
+        </column>
+        <column name="count" type="INT">
+          <constraints nullable="false"/>
+        </column>
+        <column name="discount" type="VARCHAR(500)"/>
+        <column name="description" type="TEXT"/>
+
+        <!--        <column name="picture" type="BLOB"/>  todo посмотреть как хранить пикчи -->
+      </createTable>
+  </changeSet>
+
+  <changeSet id="3.2.0" author="Anton_Tsel">
+    <addForeignKeyConstraint
+      baseTableName="item"
+      baseColumnNames="category_id"
+      constraintName="fk_item_category"
+      referencedTableName="category"
+      referencedColumnNames="id"/>
+  </changeSet>
+</databaseChangeLog>
