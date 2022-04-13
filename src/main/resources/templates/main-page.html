@@ -1,10 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
   <title>Spring Shop</title>
 </head>
 <body>
-
+  <h2>Список товаров</h2>
+  <table border="0">
+    <tbody>
+      <tr th:each="product: ${products}">
+        <td th:text="${product.name}" />
+<!--        <td th:text="${item.catalogName}" />-->
+        <td th:text="${product.description}" />
+        <td th:text="${product.price}" />
+      </tr>
+    </tbody>
+  </table>
 </body>
 </html>

@@ -15,13 +15,13 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 @Entity
-@Table(name = "item")
+@Table(name = "product")
 @Data
 @Builder
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class Item implements Serializable {
+public class Product implements Serializable {
 
     @Serial
     private static final long serialVersionUID = 9040408000746477045L;
@@ -29,6 +29,9 @@ public class Item implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
+    @Column
+    private String name;
 
     //todo: прокинуть джойном название
 //    @Column(nullable = false)

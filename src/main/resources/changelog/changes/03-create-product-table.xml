@@ -6,6 +6,11 @@
   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
 
   <changeSet id="3.0.0" author="Anton Tsel">
+      <preConditions onFail="MARK_RAN">
+        <not>
+          <tableExists tableName="category"/>
+        </not>
+      </preConditions>
       <createTable tableName="category">
         <column name="id" type="INT">
           <constraints primaryKey="true" nullable="false"/>
@@ -18,7 +23,12 @@
   </changeSet>
 
   <changeSet id="3.1.0" author="Anton Tsel">
-      <createTable tableName="item">
+      <preConditions onFail="MARK_RAN">
+        <not>
+          <tableExists tableName="product"/>
+        </not>
+      </preConditions>
+      <createTable tableName="product">
         <column name="id" type="INT">
           <constraints primaryKey="true" nullable="false"/>
         </column>
@@ -34,7 +44,7 @@
         <column name="count" type="INT">
           <constraints nullable="false"/>
         </column>
-        <column name="discount" type="VARCHAR(500)"/>
+        <column name="discount" type="INT"/>
         <column name="description" type="TEXT"/>
 
         <!--        <column name="picture" type="BLOB"/>  todo посмотреть как хранить пикчи -->
@@ -43,7 +53,7 @@
 
   <changeSet id="3.2.0" author="Anton_Tsel">
     <addForeignKeyConstraint
-      baseTableName="item"
+      baseTableName="product"
       baseColumnNames="category_id"
       constraintName="fk_item_category"
       referencedTableName="category"
