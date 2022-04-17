@@ -2,17 +2,24 @@ package com.tsel.pet.project.spring.shop.data;
 
 import java.io.Serial;
 import java.io.Serializable;
+import java.util.Objects;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
-
-import javax.persistence.*;
+import lombok.Setter;
 import lombok.ToString;
 
-@Data
-@Builder
+@Getter
+@Setter
 @ToString
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
@@ -43,4 +50,23 @@ public class User implements Serializable {
 
     @Column
     private String phone;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        User user = (User) o;
+        return id == user.id
+                && userName.equals(user.userName)
+                && password.equals(user.password)
+                && Objects.equals(firstName, user.firstName)
+                && Objects.equals(secondName, user.secondName)
+                && Objects.equals(email, user.email)
+                && Objects.equals(phone, user.phone);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, userName, password, firstName, secondName, email, phone);
+    }
 }
