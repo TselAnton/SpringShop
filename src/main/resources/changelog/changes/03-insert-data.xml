@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+  http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+  <changeSet id="3.0.0" author="Anton Tsel">
+    <preConditions onFail="MARK_RAN">
+        <tableExists tableName="user"/>
+    </preConditions>
+    <insert tableName="user">
+      <column name="id" value="1"/>
+      <column name="user_name" value="test_user_1"/>
+      <column name="password" value="test_user_1"/>
+      <column name="first_name" value="Vadim"/>
+      <column name="second_name" value="Kozlov"/>
+      <column name="email" value="vadimKozlov@email.ru"/>
+      <column name="phone" value="89645784208"/>
+    </insert>
+    <rollback/>
+  </changeSet>
+
+  <changeSet id="3.1.0" author="Anton Tsel">
+    <preConditions onFail="MARK_RAN">
+      <tableExists tableName="user"/>
+    </preConditions>
+    <insert tableName="user">
+      <column name="id" value="2"/>
+      <column name="user_name" value="test_user_2"/>
+      <column name="password" value="test_user_2"/>
+      <column name="first_name" value="Andrey"/>
+      <column name="second_name" value="Varlamov"/>
+      <column name="email" value="serceed@yandex.ru"/>
+      <column name="phone" value="89647554201"/>
+    </insert>
+    <rollback/>
+  </changeSet>
+
+  <changeSet id="3.2.0" author="Anton Tsel">
+    <preConditions onFail="MARK_RAN">
+      <tableExists tableName="user"/>
+    </preConditions>
+    <insert tableName="user">
+      <column name="id" value="3"/>
+      <column name="user_name" value="test_user_3"/>
+      <column name="password" value="test_user_3"/>
+      <column name="first_name" value="Boris"/>
+      <column name="second_name" value="Milka"/>
+      <column name="email" value="korovka@mail.ru"/>
+      <column name="phone" value="89645784333"/>
+    </insert>
+    <rollback/>
+  </changeSet>
+
+  <changeSet id="3.3.0" author="Anton Tsel">
+    <preConditions onFail="MARK_RAN">
+      <tableExists tableName="user"/>
+    </preConditions>
+    <insert tableName="user">
+      <column name="id" value="4"/>
+      <column name="user_name" value="test_user_4"/>
+      <column name="password" value="test_user_4"/>
+      <column name="first_name" value="Varis"/>
+      <column name="second_name" value="Kumis"/>
+      <column name="email" value="v1va@email.ru"/>
+      <column name="phone" value="89645682211"/>
+    </insert>
+    <rollback/>
+  </changeSet>
+
+  <changeSet id="3.4.0" author="Anton Tsel">
+    <preConditions onFail="MARK_RAN">
+      <tableExists tableName="category"/>
+    </preConditions>
+    <insert tableName="category">
+      <column name="id" value="5"/>
+      <column name="name" value="Продукты"/>
+    </insert>
+    <rollback/>
+  </changeSet>
+
+  <changeSet id="3.5.0" author="Anton Tsel">
+    <preConditions onFail="MARK_RAN">
+      <tableExists tableName="category"/>
+    </preConditions>
+    <insert tableName="category">
+      <column name="id" value="6"/>
+      <column name="name" value="Электротовары"/>
+    </insert>
+    <rollback/>
+  </changeSet>
+
+  <changeSet id="3.6.0" author="Anton Tsel">
+    <preConditions onFail="MARK_RAN">
+      <tableExists tableName="category"/>
+    </preConditions>
+    <insert tableName="category">
+      <column name="id" value="7"/>
+      <column name="name" value="Остальная чушня"/>
+    </insert>
+    <rollback/>
+  </changeSet>
+
+  <changeSet id="3.7.0" author="Anton Tsel">
+    <preConditions onFail="MARK_RAN">
+      <tableExists tableName="product"/>
+    </preConditions>
+    <insert tableName="product">
+      <column name="id" value="8"/>
+      <column name="name" value="Молоко"/>
+      <column name="category_id" value="5"/>
+      <column name="price" value="10000"/>
+      <column name="count" value="5"/>
+      <column name="description" value="Просто молочко"/>
+      <column name="discount" value="30"/>
+    </insert>
+    <rollback/>
+  </changeSet>
+
+  <changeSet id="3.8.0" author="Anton Tsel">
+    <preConditions onFail="MARK_RAN">
+      <tableExists tableName="product"/>
+    </preConditions>
+    <insert tableName="product">
+      <column name="id" value="9"/>
+      <column name="name" value="Монитор"/>
+      <column name="category_id" value="6"/>
+      <column name="price" value="1000000"/>
+      <column name="count" value="1"/>
+      <column name="description" value="Глупый монитор"/>
+    </insert>
+    <rollback/>
+  </changeSet>
+
+  <changeSet id="3.9.0" author="Anton Tsel">
+    <preConditions onFail="MARK_RAN">
+      <tableExists tableName="product"/>
+    </preConditions>
+    <insert tableName="product">
+      <column name="id" value="10"/>
+      <column name="name" value="Какая-то хрень"/>
+      <column name="category_id" value="7"/>
+      <column name="price" value="500000"/>
+      <column name="count" value="30"/>
+      <column name="description" value="Придумайте сами"/>
+    </insert>
+    <rollback/>
+  </changeSet>
+</databaseChangeLog>
