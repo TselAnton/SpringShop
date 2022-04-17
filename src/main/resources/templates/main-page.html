@@ -8,11 +8,19 @@
   <h2>Список товаров</h2>
   <table border="0">
     <tbody>
+      <tr>
+        <b>
+          <td>Название</td>
+          <td>Категория</td>
+          <td>Описание</td>
+          <td>Название</td>
+        </b>
+      </tr>
       <tr th:each="product: ${products}">
-        <td th:text="${product.name}" />
-        <td th:text="${item.categoryName}" />
-        <td th:text="${product.description}" />
-        <td th:text="${product.price}" />
+        <td th:text="${product.name}"></td>
+        <td th:text="${product.category?.name}"></td>
+        <td th:text="${product.description}"></td>
+        <td th:text="${product.price}"></td>
       </tr>
     </tbody>
   </table>

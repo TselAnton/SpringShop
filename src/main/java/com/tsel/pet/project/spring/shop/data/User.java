@@ -10,13 +10,13 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import lombok.ToString;
 
-@Entity
-@Table(name = "user")
 @Data
 @Builder
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
+@Entity
+@Table(name = "user")
 public class User implements Serializable {
 
     @Serial
