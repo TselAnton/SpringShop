@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+  <meta charset="UTF-8">
+  <title>Spring Shop Login Page</title>
+</head>
+<body>
+  <h1>Зарегестрироваться</h1>
+  <form th:action="@{/registration}" method="post">
+    <label for="username">Логин</label>
+    <input type="text" id="userName" name="userName" autofocus="autofocus"/>
+    <br/>
+    <label for="password">Пароль</label>
+    <input type="password" id="password" name="password"/>
+    <br/>
+    <label for="firstName">Имя</label>
+    <input type="text" id="firstName" name="firstName"/>
+    <br/>
+    <label for="secondName">Фамилия</label>
+    <input type="text" id="secondName" name="secondName"/>
+    <br/>
+    <label for="email">Электронная почта</label>
+    <input type="email" id="email" name="email"/>
+    <br/>
+    <label for="phone">Телефон</label>
+    <input type="tel" id="phone" name="phone"/>
+    <br/>
+    <input type="submit" value="Войти"/>
+  </form>
+</body>
+</html>

@@ -1,4 +1,4 @@
-package com.tsel.pet.project.spring.shop.controller;
+package com.tsel.pet.project.spring.shop.auth.controller;
 
 import com.tsel.pet.project.spring.shop.dto.UserLoginDTO;
 import org.springframework.stereotype.Controller;
@@ -15,6 +15,16 @@ public class AuthController {
 
     @PostMapping("/login")
     public void login(UserLoginDTO userLoginDTO) {
+        System.out.println(userLoginDTO);
+    }
+
+    @GetMapping("/registration")
+    public String registrationView() {
+        return "registration";
+    }
+
+    @PostMapping("/registration")
+    public void register(UserLoginDTO userLoginDTO) {
         System.out.println(userLoginDTO);
     }
 }

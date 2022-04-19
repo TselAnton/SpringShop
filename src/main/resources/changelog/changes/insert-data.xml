@@ -11,7 +11,7 @@
     </preConditions>
     <insert tableName="user">
       <column name="id" value="1"/>
-      <column name="user_name" value="test_user_1"/>
+      <column name="username" value="test_user_1"/>
       <column name="password" value="test_user_1"/>
       <column name="first_name" value="Vadim"/>
       <column name="second_name" value="Kozlov"/>
@@ -27,7 +27,7 @@
     </preConditions>
     <insert tableName="user">
       <column name="id" value="2"/>
-      <column name="user_name" value="test_user_2"/>
+      <column name="username" value="test_user_2"/>
       <column name="password" value="test_user_2"/>
       <column name="first_name" value="Andrey"/>
       <column name="second_name" value="Varlamov"/>
@@ -43,7 +43,7 @@
     </preConditions>
     <insert tableName="user">
       <column name="id" value="3"/>
-      <column name="user_name" value="test_user_3"/>
+      <column name="username" value="test_user_3"/>
       <column name="password" value="test_user_3"/>
       <column name="first_name" value="Boris"/>
       <column name="second_name" value="Milka"/>
@@ -59,7 +59,7 @@
     </preConditions>
     <insert tableName="user">
       <column name="id" value="4"/>
-      <column name="user_name" value="test_user_4"/>
+      <column name="username" value="test_user_4"/>
       <column name="password" value="test_user_4"/>
       <column name="first_name" value="Varis"/>
       <column name="second_name" value="Kumis"/>

@@ -34,7 +34,7 @@ public class User implements Serializable {
     private long id;
 
     @Column(nullable = false)
-    private String userName;
+    private String username;
 
     @Column(nullable = false)
     private String password;
@@ -57,7 +57,7 @@ public class User implements Serializable {
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
         return id == user.id
-                && userName.equals(user.userName)
+                && username.equals(user.username)
                 && password.equals(user.password)
                 && Objects.equals(firstName, user.firstName)
                 && Objects.equals(secondName, user.secondName)
@@ -67,6 +67,6 @@ public class User implements Serializable {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, userName, password, firstName, secondName, email, phone);
+        return Objects.hash(id, username, password, firstName, secondName, email, phone);
     }
 }

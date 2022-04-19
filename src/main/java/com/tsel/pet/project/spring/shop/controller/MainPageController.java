@@ -17,4 +17,10 @@ public class MainPageController {
         model.addAttribute("products", productRepository.findAll());
         return "main-page";
     }
+
+    @GetMapping("/test")
+    public String getTestView(Model model) {
+        model.addAttribute("products", productRepository.findAll());
+        return "main-page";
+    }
 }

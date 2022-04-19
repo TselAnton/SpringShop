@@ -1,14 +1,20 @@
 <!DOCTYPE html>
-<html lang="ru" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <head>
   <meta charset="UTF-8">
   <title>Spring Shop Login Page</title>
 </head>
 <body>
+  <div th:if="${param.error}">
+    Invalid username and password.
+  </div>
+  <div th:if="${param.logout}">
+    You have been logged out.
+  </div>
   <h1>Войти на сайт</h1>
   <form th:action="@{/login}" method="post">
     <label for="username">Логин</label>
-    <input type="text" id="userName" name="userName" autofocus="autofocus"/>
+    <input type="text" id="username" name="userName" autofocus="autofocus"/>
     <br/>
     <label for="password">Пароль</label>
     <input type="password" id="password" name="password"/>
