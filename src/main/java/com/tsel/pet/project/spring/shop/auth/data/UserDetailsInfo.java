@@ -1,12 +1,17 @@
 package com.tsel.pet.project.spring.shop.auth.data;
 
+import static java.util.Arrays.asList;
+
 import com.tsel.pet.project.spring.shop.data.User;
+import java.io.Serial;
+import java.util.ArrayList;
 import java.util.Collection;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 @Getter
@@ -14,6 +19,9 @@ import org.springframework.security.core.userdetails.UserDetails;
 @ToString
 @EqualsAndHashCode
 public class UserDetailsInfo implements UserDetails {
+
+    @Serial
+    private static final long serialVersionUID = 8738653371871578644L;
 
     private String username;
     private String password;
@@ -25,7 +33,7 @@ public class UserDetailsInfo implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+        return asList(new SimpleGrantedAuthority("USER"));
     }
 
     @Override

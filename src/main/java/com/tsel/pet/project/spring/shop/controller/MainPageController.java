@@ -18,8 +18,14 @@ public class MainPageController {
         return "main-page";
     }
 
-    @GetMapping("/test")
+    @GetMapping(value = "/admin")
     public String getTestView(Model model) {
+        model.addAttribute("products", productRepository.findAll());
+        return "main-page";
+    }
+
+    @GetMapping(value = "/test")
+    public String getTestView2(Model model) {
         model.addAttribute("products", productRepository.findAll());
         return "main-page";
     }

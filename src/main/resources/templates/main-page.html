@@ -2,27 +2,49 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
+  <link rel="stylesheet" href="style/main-style.css">
   <title>Spring Shop</title>
 </head>
 <body>
   <h2>Список товаров</h2>
-  <table border="1">
-    <tbody>
-      <tr>
-        <b>
-          <td>Название</td>
-          <td>Категория</td>
-          <td>Описание</td>
-          <td>Цена</td>
-        </b>
-      </tr>
-      <tr th:each="product: ${products}">
-        <td th:text="${product.name}"></td>
-        <td th:text="${product.category?.name}"></td>
-        <td th:text="${product.description}"></td>
-        <td th:text="${product.price}"></td>
-      </tr>
-    </tbody>
+  <table>
+<!--    <tr>-->
+<!--      <th>Название</th>-->
+<!--      <th>Категория</th>-->
+<!--      <th>Описание</th>-->
+<!--      <th>Цена</th>-->
+<!--    </tr>-->
+    <tr th:each="product: ${products}">
+        <th th:text="${product.name}"></th>
+        <th th:text="${product.category?.name}"></th>
+        <th th:text="${product.description}"></th>
+        <th th:text="${product.price}"></th>
+    </tr>
+<!--    todo: удалить всё ниже-->
+    <tr>
+      <th>Название 1</th>
+      <th>Категория 1</th>
+      <th>Описание товара номер 1 с дополнительным текстом после</th>
+      <th>1111</th>
+    </tr>
+    <tr>
+      <th>Название 2</th>
+      <th>Категория 2</th>
+      <th>Описание товара номер 2 с дополнительным текстом после</th>
+      <th>2222</th>
+    </tr>
+    <tr>
+      <th>Название 3</th>
+      <th>Категория 3</th>
+      <th>Описание товара номер 3 с дополнительным текстом после</th>
+      <th>3333</th>
+    </tr>
   </table>
+  <div class="product__card">
+    <p>Название 1</p>
+    <p>Категория 1</p>
+    <p>Описание товара номер 1 с дополнительным текстом после</p>
+    <p>1111</p>
+  </div>
 </body>
 </html>
