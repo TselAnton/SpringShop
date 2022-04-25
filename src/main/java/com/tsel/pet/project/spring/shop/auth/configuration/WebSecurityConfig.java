@@ -8,6 +8,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
@@ -26,28 +27,31 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests()
-            .antMatchers("/admin").hasRole("ADMIN")
-            .antMatchers("/test").hasRole("USER")
-            .antMatchers("/*").permitAll()
-            .and()
-            .formLogin()
-            .permitAll();
-
 //        http.authorizeRequests()
-//                .antMatchers("/", "/registration", "/admin").permitAll()
-//                .anyRequest().authenticated()
+//            .antMatchers("/admin").hasRole("ADMIN")
+//            .antMatchers("/test").hasRole("USER")
+//            .antMatchers("/*").permitAll()
 //            .and()
-//                .formLogin()
+//            .formLogin()
+//            .permitAll();
+
+        http.authorizeRequests()
+                .antMatchers("/", "/registration").permitAll()
+//                .antMatchers("/admin").hasAuthority("ADMIN")
+                .antMatchers("/admin").hasRole("ADMIN")
+                .anyRequest().authenticated()
+            .and()
+                .formLogin()
 //                .loginPage("/login")
-//                .permitAll()
-//            .and()
-//                .logout()
-//                .permitAll();
+                .permitAll()
+            .and()
+                .logout()
+                .permitAll();
     }
 
     @Bean
     public PasswordEncoder passwordEncoder() {
         return NoOpPasswordEncoder.getInstance();
+//        return new BCryptPasswordEncoder();
     }
 }

@@ -7,6 +7,58 @@
 
   <changeSet id="10.0.0" author="Anton Tsel">
     <preConditions onFail="MARK_RAN">
+      <tableExists tableName="role"/>
+    </preConditions>
+    <insert tableName="role">
+      <column name="id" value="1"/>
+      <column name="name" value="ROLE_USER"/>
+      <column name="title" value="Пользователь"/>
+      <column name="level" value="0"/>
+    </insert>
+    <rollback/>
+  </changeSet>
+
+  <changeSet id="10.1.0" author="Anton Tsel">
+    <preConditions onFail="MARK_RAN">
+      <tableExists tableName="role"/>
+    </preConditions>
+    <insert tableName="role">
+      <column name="id" value="2"/>
+      <column name="name" value="ROLE_SELLER"/>
+      <column name="title" value="Продавец"/>
+      <column name="level" value="1"/>
+    </insert>
+    <rollback/>
+  </changeSet>
+
+  <changeSet id="10.2.0" author="Anton Tsel">
+    <preConditions onFail="MARK_RAN">
+      <tableExists tableName="role"/>
+    </preConditions>
+    <insert tableName="role">
+      <column name="id" value="3"/>
+      <column name="name" value="ROLE_MANGER"/>
+      <column name="title" value="Менеджер"/>
+      <column name="level" value="2"/>
+    </insert>
+    <rollback/>
+  </changeSet>
+
+  <changeSet id="10.3.0" author="Anton Tsel">
+    <preConditions onFail="MARK_RAN">
+      <tableExists tableName="role"/>
+    </preConditions>
+    <insert tableName="role">
+      <column name="id" value="4"/>
+      <column name="name" value="ROLE_ADMIN"/>
+      <column name="title" value="Администратор"/>
+      <column name="level" value="3"/>
+    </insert>
+    <rollback/>
+  </changeSet>
+
+  <changeSet id="10.4.0" author="Anton Tsel">
+    <preConditions onFail="MARK_RAN">
         <tableExists tableName="user"/>
     </preConditions>
     <insert tableName="user">
@@ -17,11 +69,12 @@
       <column name="second_name" value="Kozlov"/>
       <column name="email" value="vadimKozlov@email.ru"/>
       <column name="phone" value="89645784208"/>
+      <column name="role_id" value="1"/>
     </insert>
     <rollback/>
   </changeSet>
 
-  <changeSet id="10.1.0" author="Anton Tsel">
+  <changeSet id="10.5.0" author="Anton Tsel">
     <preConditions onFail="MARK_RAN">
       <tableExists tableName="user"/>
     </preConditions>
@@ -33,11 +86,12 @@
       <column name="second_name" value="Varlamov"/>
       <column name="email" value="serceed@yandex.ru"/>
       <column name="phone" value="89647554201"/>
+      <column name="role_id" value="2"/>
     </insert>
     <rollback/>
   </changeSet>
 
-  <changeSet id="10.2.0" author="Anton Tsel">
+  <changeSet id="10.6.0" author="Anton Tsel">
     <preConditions onFail="MARK_RAN">
       <tableExists tableName="user"/>
     </preConditions>
@@ -49,11 +103,12 @@
       <column name="second_name" value="Milka"/>
       <column name="email" value="korovka@mail.ru"/>
       <column name="phone" value="89645784333"/>
+      <column name="role_id" value="3"/>
     </insert>
     <rollback/>
   </changeSet>
 
-  <changeSet id="10.3.0" author="Anton Tsel">
+  <changeSet id="10.7.0" author="Anton Tsel">
     <preConditions onFail="MARK_RAN">
       <tableExists tableName="user"/>
     </preConditions>
@@ -65,11 +120,12 @@
       <column name="second_name" value="Kumis"/>
       <column name="email" value="v1va@email.ru"/>
       <column name="phone" value="89645682211"/>
+      <column name="role_id" value="4"/>
     </insert>
     <rollback/>
   </changeSet>
 
-  <changeSet id="10.4.0" author="Anton Tsel">
+  <changeSet id="10.8.0" author="Anton Tsel">
     <preConditions onFail="MARK_RAN">
       <tableExists tableName="category"/>
     </preConditions>
@@ -80,7 +136,7 @@
     <rollback/>
   </changeSet>
 
-  <changeSet id="10.5.0" author="Anton Tsel">
+  <changeSet id="10.9.0" author="Anton Tsel">
     <preConditions onFail="MARK_RAN">
       <tableExists tableName="category"/>
     </preConditions>
@@ -91,7 +147,7 @@
     <rollback/>
   </changeSet>
 
-  <changeSet id="10.6.0" author="Anton Tsel">
+  <changeSet id="10.10.0" author="Anton Tsel">
     <preConditions onFail="MARK_RAN">
       <tableExists tableName="category"/>
     </preConditions>
@@ -102,7 +158,7 @@
     <rollback/>
   </changeSet>
 
-  <changeSet id="10.7.0" author="Anton Tsel">
+  <changeSet id="10.11.0" author="Anton Tsel">
     <preConditions onFail="MARK_RAN">
       <tableExists tableName="product"/>
     </preConditions>
@@ -118,7 +174,7 @@
     <rollback/>
   </changeSet>
 
-  <changeSet id="10.8.0" author="Anton Tsel">
+  <changeSet id="10.12.0" author="Anton Tsel">
     <preConditions onFail="MARK_RAN">
       <tableExists tableName="product"/>
     </preConditions>
@@ -133,7 +189,7 @@
     <rollback/>
   </changeSet>
 
-  <changeSet id="10.9.0" author="Anton Tsel">
+  <changeSet id="10.13.0" author="Anton Tsel">
     <preConditions onFail="MARK_RAN">
       <tableExists tableName="product"/>
     </preConditions>

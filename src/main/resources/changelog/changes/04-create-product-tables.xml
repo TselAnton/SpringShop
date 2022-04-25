@@ -5,7 +5,7 @@
   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
 
-  <changeSet id="3.0.0" author="Anton Tsel">
+  <changeSet id="4.0.0" author="Anton Tsel">
       <preConditions onFail="MARK_RAN">
         <not>
           <tableExists tableName="product"/>
@@ -34,7 +34,7 @@
       </createTable>
   </changeSet>
 
-  <changeSet id="3.1.0" author="Anton_Tsel">
+  <changeSet id="4.1.0" author="Anton_Tsel">
     <addForeignKeyConstraint
       baseTableName="product"
       baseColumnNames="category_id"

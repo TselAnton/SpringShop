@@ -2,12 +2,17 @@ package com.tsel.pet.project.spring.shop.data;
 
 import java.io.Serial;
 import java.io.Serializable;
+import java.util.List;
 import java.util.Objects;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -38,6 +43,10 @@ public class User implements Serializable {
 
     @Column(nullable = false)
     private String password;
+
+    @ManyToOne(cascade = CascadeType.REMOVE)
+    @JoinColumn(name = "role_id")
+    private Role role;
 
     @Column
     private String firstName;

@@ -1,10 +1,10 @@
 package com.tsel.pet.project.spring.shop.auth.data;
 
-import static java.util.Arrays.asList;
+import static java.util.Optional.of;
 
+import com.tsel.pet.project.spring.shop.data.Role;
 import com.tsel.pet.project.spring.shop.data.User;
 import java.io.Serial;
-import java.util.ArrayList;
 import java.util.Collection;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -25,15 +25,21 @@ public class UserDetailsInfo implements UserDetails {
 
     private String username;
     private String password;
+    private Role role;
 
     public UserDetailsInfo(User user) {
         this.username = user.getUsername();
         this.password = user.getPassword();
+        this.role = user.getRole();
     }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return asList(new SimpleGrantedAuthority("USER"));
+        return of(role)
+            .map(Role::getName)
+            .map(SimpleGrantedAuthority::new)
+            .stream()
+            .toList();
     }
 
     @Override
